@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Cricket Game</title>
+    <!-- Link to the CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-container">
+    <h1>🏏 Hand Cricket</h1>
+
+    <!-- TOSS SCREEN -->
+    <div id="toss-screen" class="screen active">
+        <h3>Choose Heads or Tails for the Toss</h3>
+        <button class="btn" onclick="runToss('H')">Heads</button>
+        <button class="btn" onclick="runToss('T')">Tails</button>
+        <p id="toss-log"></p>
+    </div>
+
+    <!-- DECISION SCREEN -->
+    <div id="decision-screen" class="screen">
+        <h3 id="toss-win-msg">You won the toss!</h3>
+        <button class="btn" onclick="setInitialRole('Bat')">Bat First</button>
+        <button class="btn" onclick="setInitialRole('Bowl')">Bowl First</button>
+    </div>
+
+    <!-- GAMEPLAY SCREEN -->
+    <div id="game-screen" class="screen">
+        <div class="scoreboard">
+            <div>Current Role: <span id="current-role">-</span></div>
+            <div>Target: <span id="target-display">N/A</span></div>
+            <div>Runs: <span id="runs-display">0</span></div>
+            <div>Wickets: <span id="wickets-display">0</span></div>
+            <div>Balls: <span id="balls-display">0/12</span></div>
+        </div>
+
+        <div class="gameplay-log" id="gameplay-log">Make your move!</div>
+
+        <div class="choices-display" id="choices-display">
+            <!-- Will show what each player selected -->
+        </div>
+
+        <div id="input-controls">
+            <p>Choose a number to run/bowl:</p>
+            <button class="btn btn-choice" onclick="playBall(1)">1</button>
+            <button class="btn btn-choice" onclick="playBall(2)">2</button>
+            <button class="btn btn-choice" onclick="playBall(3)">3</button>
+            <button class="btn btn-choice" onclick="playBall(4)">4</button>
+            <button class="btn btn-choice" onclick="playBall(5)">5</button>
+            <button class="btn btn-choice" onclick="playBall(6)">6</button>
+        </div>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div id="result-screen" class="screen">
+        <h2 id="final-result-msg">Match Over!</h2>
+        <div class="scoreboard single-col">
+            <div>Your Total Runs: <span id="final-user-score">0</span></div>
+            <div>Computer Total Runs: <span id="final-comp-score">0</span></div>
+        </div>
+        <button class="btn" onclick="resetGame()">Play Again</button>
+    </div>
+</div>
+
+<!-- Link to the JavaScript logic -->
+<script src="script.js"></script>
+</body>
+</html>
